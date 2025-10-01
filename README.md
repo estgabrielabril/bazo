@@ -1,0 +1,49 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Celda de Manufactura Automatizada</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="js/tu-script.js"></script> <!-- Archivo de lógica -->
+</head>
+<body>
+  <a-scene background="color: #ECECEC">
+    <!-- Cámara con controles -->
+    <a-entity camera position="0 2 6" look-controls wasd-controls></a-entity>
+
+    <!-- Luces -->
+    <a-light type="ambient" color="#BBB" intensity="0.8"></a-light>
+    <a-light type="directional" position="5 10 5" intensity="0.6"></a-light>
+
+    <!-- Piso -->
+    <a-plane rotation="-90 0 0" width="20" height="20" color="#7f8c8d"></a-plane>
+
+    <!-- Brazo robótico (modelo GLB) -->
+    <a-entity id="brazo" 
+              gltf-model="url(models/brazo_robotico_222.glb)" 
+              scale="1 1 1" 
+              position="0 0 0" 
+              rotation="0 0 0"
+              animation-mixer>
+    </a-entity>
+
+    <!-- Caja que se mueve sobre la banda -->
+    <a-box id="caja" 
+           color="#e74c3c" 
+           width="0.5" height="0.5" depth="0.5" 
+           position="0 0.5 -5"
+           conveyor-box>
+    </a-box>
+
+    <!-- Texto informativo -->
+    <a-text value="Celda de Manufactura Automatizada" 
+            position="0 3 -4" 
+            scale="2 2 2" 
+            color="#111" 
+            align="center">
+    </a-text>
+
+    <!-- Cielo -->
+    <a-sky color="#87CEEB"></a-sky>
+  </a-scene>
+</body>
+</html>
